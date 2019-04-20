@@ -1,0 +1,29 @@
+version: "3.4"
+
+services:
+   web:
+     build: docker/apache
+     container_name: ${PROJECT_NAME}_web
+     volumes:
+        - .:${PROJECT_PATH}
+        - ./docker/apache/sites-enabled:/etc/apache2/sites-enabled
+        - ./docker/php/custom-php.ini:/usr/local/etc/php/conf.d/custom-php.ini
+     depends_on:
+         - db
+     ports:
+         - "8082:80"
+
+   db:
+     image: mysql:5.7
+     container_name: ${PROJECT_NAME}_mysql
+     volumes:
+       - ./docker/db/custom.cnf:/etc/mysql/conf.d/custom.cnf
+       - db_data:/var/lib/mysql
+     environment:
+       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASS}
+       MYSQL_DATABASE: ${DB_NAME}
+     ports:
+         - 3306
+
+volumes:
+    db_data:
