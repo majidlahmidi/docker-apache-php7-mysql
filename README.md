@@ -23,8 +23,8 @@ vim .env
 ```
 
 ## vhost : docker/apache/sites-enabled/site.conf
-## custom php : docker/php/custom-php.ini
-## vhost : docker/db/custom.cnf
+## custom php config : docker/php/custom-php.ini
+## curom mysql config : docker/db/custom.cnf
 
 ### For security reason mysql dont start if docker/db/custom.cnf have not the right chmod :
 
