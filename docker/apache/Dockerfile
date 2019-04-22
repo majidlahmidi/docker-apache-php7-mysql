@@ -12,7 +12,7 @@ libzip-dev
 RUN a2enmod rewrite
 
 RUN apt-get install -y --no-install-recommends \
-    	zip \
+        zip \
         curl \
         libmemcached-dev \
         libz-dev \
@@ -45,5 +45,15 @@ RUN docker-php-ext-install zip
 RUN apt-get install -y zlib1g-dev libicu-dev g++ \
 && docker-php-ext-configure intl \
 && docker-php-ext-install intl
+
+RUN docker-php-ext-configure bcmath \
+&& docker-php-ext-install bcmath
+
+RUN apt install -y libxslt-dev \
+&& docker-php-ext-install xsl
+
+RUN docker-php-ext-configure soap \
+&& docker-php-ext-install soap
+
 
 #CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
