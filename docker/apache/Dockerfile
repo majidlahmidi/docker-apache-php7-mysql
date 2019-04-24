@@ -55,5 +55,6 @@ RUN apt install -y libxslt-dev \
 RUN docker-php-ext-configure soap \
 && docker-php-ext-install soap
 
+RUn apt-get install -y mysql-client
 
 #CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
