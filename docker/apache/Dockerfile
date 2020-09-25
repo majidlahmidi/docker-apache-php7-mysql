@@ -4,8 +4,9 @@ RUN curl -OL https://github.com/composer/composer/releases/download/1.7.2/compos
 mv composer.phar /usr/local/bin/composer && \
 chmod +x /usr/local/bin/composer
 
-RUN apt-get update && \
-apt-get -y install git \
+RUN apt-get update 
+
+RUn apt-get -y install git \
 zlib1g-dev \
 libzip-dev
 
@@ -37,8 +38,9 @@ RUN docker-php-ext-install pdo_pgsql
 RUN docker-php-ext-configure gd \
         --enable-gd-native-ttf \
         --with-jpeg-dir=/usr/lib \
-        --with-freetype-dir=/usr/include/freetype2 && \
-    docker-php-ext-install gd
+        --with-freetype-dir=/usr/include/freetype2
+
+RUN docker-php-ext-install gd
 
 RUN docker-php-ext-install zip
 
@@ -55,7 +57,7 @@ RUN apt install -y libxslt-dev \
 RUN docker-php-ext-configure soap \
 && docker-php-ext-install soap
 
-RUN apt-get install -y mysql-client
+RUN apt-get install -y default-mysql-client
 
 RUN docker-php-ext-install opcache
 
