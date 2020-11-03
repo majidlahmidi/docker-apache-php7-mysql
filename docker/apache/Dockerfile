@@ -5,15 +5,14 @@ mv composer.phar /usr/local/bin/composer && \
 chmod +x /usr/local/bin/composer
 
 RUN apt-get update 
-
-RUn apt-get -y install git \
+RUN apt-get -y install git
 zlib1g-dev \
 libzip-dev
 
 RUN a2enmod rewrite
 
 RUN apt-get install -y --no-install-recommends \
-        zip \
+    	zip \
         curl \
         libmemcached-dev \
         libz-dev \
@@ -38,27 +37,13 @@ RUN docker-php-ext-install pdo_pgsql
 RUN docker-php-ext-configure gd \
         --enable-gd-native-ttf \
         --with-jpeg-dir=/usr/lib \
-        --with-freetype-dir=/usr/include/freetype2
-
-RUN docker-php-ext-install gd
+        --with-freetype-dir=/usr/include/freetype2 && \
+    docker-php-ext-install gd
 
 RUN docker-php-ext-install zip
 
 RUN apt-get install -y zlib1g-dev libicu-dev g++ \
 && docker-php-ext-configure intl \
 && docker-php-ext-install intl
-
-RUN docker-php-ext-configure bcmath \
-&& docker-php-ext-install bcmath
-
-RUN apt install -y libxslt-dev \
-&& docker-php-ext-install xsl
-
-RUN docker-php-ext-configure soap \
-&& docker-php-ext-install soap
-
-RUN apt-get install -y default-mysql-client
-
-RUN docker-php-ext-install opcache
 
 #CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
