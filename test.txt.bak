@@ -1,0 +1,9 @@
+<<<<<<< HEAD
+test merge request 1
+
+test merge request 2
+=======
+test merge request
+
+modif dans master after develop modified
+>>>>>>> 351a72f (modif dans master after develop modified)
