@@ -2,6 +2,3 @@ test merge request
 
 test merge request 2
 modif dans master after develop modified
-add some modif on develop
-add some modif on develop ....
-autre modif branche master
