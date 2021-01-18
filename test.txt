@@ -2,4 +2,4 @@ test merge request
 
 test merge request 2
 
-test conflict etc etc fait par majid
+test conflict etc etc fait par lahmidi 
