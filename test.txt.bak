@@ -1,0 +1,8 @@
+test merge request
+
+test merge request 2
+<<<<<<< HEAD
+modif dans master after develop modified .....
+=======
+modif dans master after develop modified ______
+>>>>>>> f357dbc91e5815661b0b30c179caaf32c024f0f0
