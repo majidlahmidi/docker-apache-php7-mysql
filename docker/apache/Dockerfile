@@ -5,9 +5,7 @@ mv composer.phar /usr/local/bin/composer && \
 chmod +x /usr/local/bin/composer
 
 RUN apt-get update 
-RUN apt-get -y install git
-zlib1g-dev \
-libzip-dev
+RUN apt-get -y install git zlib1g-dev libzip-dev
 
 RUN a2enmod rewrite
 
@@ -33,9 +31,10 @@ RUN docker-php-ext-install pdo_pgsql
 # gd:
 #####################################
 
+#--enable-gd-native-ttf \
 # Install the PHP gd library
 RUN docker-php-ext-configure gd \
-        --enable-gd-native-ttf \
+        
         --with-jpeg-dir=/usr/lib \
         --with-freetype-dir=/usr/include/freetype2 && \
     docker-php-ext-install gd
